@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Payment App</string>
+    <string name="payment_sdk_demo">Payment Sdk Demo</string>
+    <string name="pay_now">Pay Now</string>
+</resources>
