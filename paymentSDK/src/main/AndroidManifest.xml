@@ -4,7 +4,7 @@
 
     <application android:usesCleartextTraffic="true">
         <activity
-            android:name=".PaymentActivity"
+            android:name="com.jiocoders.paymentsdk.PaymentActivity"
             android:exported="false"
             android:launchMode="standard"
             android:screenOrientation="portrait"

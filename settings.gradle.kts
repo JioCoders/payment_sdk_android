@@ -16,10 +16,9 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        mavenLocal()
     }
 }
 
-rootProject.name = "Payment App"
-include(":app")
+rootProject.name = "payment_app_android"
 include(":paymentSDK")
+include(":app")

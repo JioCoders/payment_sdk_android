@@ -7,7 +7,8 @@ import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.enableEdgeToEdge
 import com.jiocoders.paymentsdk.PaymentCallback
-import com.jiocoders.paymentsdk.PaymentSDK
+import com.jiocoders.paymentsdk.PaymentSDK as lib1
+//import com.jiocoders.mylibrary.PaymentSDK as lib2
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,10 +16,12 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
-        PaymentSDK.initialize(this)
+        lib1.initialize(this)
+//        lib2.initialize(this)
 
         findViewById<Button>(R.id.payButton).setOnClickListener {
-            PaymentSDK.startPayment(this, 20.0, object : PaymentCallback {
+//            lib2.startPayment(this, 1.0)
+            lib1.startPayment(this, 20.0, object : PaymentCallback {
                 override fun onSuccess(transactionId: String) {
                     Toast.makeText(this@MainActivity, "Success: $transactionId", Toast.LENGTH_LONG)
                         .show()
@@ -34,6 +37,6 @@ class MainActivity : ComponentActivity() {
     @Deprecated("This method has been deprecated in favor of using the Activity Result API\n      which brings increased type safety via an {@link ActivityResultContract} and the prebuilt\n      contracts for common intents available in\n      {@link androidx.activity.result.contract.ActivityResultContracts}, provides hooks for\n      testing, and allow receiving results in separate, testable classes independent from your\n      activity. Use\n      {@link #registerForActivityResult(ActivityResultContract, ActivityResultCallback)}\n      with the appropriate {@link ActivityResultContract} and handling the result in the\n      {@link ActivityResultCallback#onActivityResult(Object) callback}.")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        PaymentSDK.handleActivityResult(requestCode, resultCode, data)
+        lib1.handleActivityResult(requestCode, resultCode, data)
     }
 }
