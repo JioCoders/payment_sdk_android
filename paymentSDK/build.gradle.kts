@@ -55,6 +55,17 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    // ✅ Sources and Javadoc JAR tasks
+    val sourcesJar by tasks.registering(Jar::class) {
+        archiveClassifier.set("sources")
+        from(android.sourceSets["main"].java.srcDirs)
+    }
+    
+    val javadocJar by tasks.registering(Jar::class) {
+        archiveClassifier.set("javadoc")
+        from(android.sourceSets["main"].java.srcDirs) // Placeholder, as javadoc isn't auto-generated for Android
+    }
 }
 
 // 🔁 Publishing block must come *after* Android config
