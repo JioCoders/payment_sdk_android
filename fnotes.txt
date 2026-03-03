@@ -1,0 +1,231 @@
+
+// todo: 28 Mar 2025 -----------------latest method-------------
+    id("com.vanniktech.maven.publish") version "0.29.0"
+    id("signing")
+
+mavenPublishing {
+    publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
+
+    signAllPublications()
+
+    coordinates("io.github.lincythomas", "numberFormatter", "1.0.2")
+
+    pom {
+        name = "NumberFormatter library"
+        description = "Amount Formatter library."
+        inceptionYear = "2025"
+        url = "https://github.com/lincythomas/NumberFormatter/"
+        licenses {
+            license {
+                name = "The Apache License, Version 2.0"
+                url = "https://www.apache.org/licenses/LICENSE-2.0.txt"
+                distribution = "https://www.apache.org/licenses/LICENSE-2.0.txt"
+            }
+        }
+        developers {
+            developer {
+                id = "lincythomas"
+                name = "Kotlin Developer Advocate"
+                url = "https://github.com/lincythomas/"
+            }
+        }
+        scm {
+            url = "https://github.com/lincythomas/NumberFormatter/"
+            connection = "scm:git:git://github.com/lincythomas/NumberFormatter.git"
+            developerConnection = "scm:git:ssh://git@github.com/lincythomas/NumberFormatter.git"
+        }
+    }
+    signing{
+        useInMemoryPgpKeys(
+            keystoreProperties["signing.keyId"].toString(),
+            File(keystoreProperties["signing.secretKeyRingFile"].toString()).readText(),
+            keystoreProperties["signing.password"].toString()
+        )
+    }
+}
+local.props
+signing.keyId=3B586CE7
+signing.password=Ne0S0ftDev
+signing.secretKeyRingFile=/Users/sipay/key.gpg
+
+gradle.props
+POM_ARTIFACT_ID=mylibrary-runtime
+VERSION_NAME=1.0.3-SNAPSHOT
+
+mavenCentralUsername=2thSGKyf
+mavenCentralPassword=6LtR//It5SiqpKbGi76UWTIdaWiZx2dJYLKCOKxXUW2M
+// end todo: 28 Mar 2025 -----------------new method-------------
+
+// todo: 24 Mar 2025 -----------------new method-------------
+    id("com.vanniktech.maven.publish") version "0.29.0"
+    id("signing")
+
+fileASC :: private-key.asc
+fileGPG :: privateKeysBackup.gpg
+
+    id("maven-publish")
+    id("signing")
+
+// Publishing to Maven Central setup
+publishing {
+    publications {
+        // Define the release publication
+        register<MavenPublication>("release") {
+            // from(components["release"]) // Use the release build variant
+
+            groupId = "io.github.neosoftpalash" // Replace with your groupId
+            artifactId = "mylibrary2" // Replace with your artifactId
+            version = "1.0.0" // Replace with your library version
+
+
+            afterEvaluate {
+                from(components["release"])
+            }
+
+            pom {
+                name.set("Palash Library")
+                description.set("A simple Android library")
+                url.set("https://github.com/neosoftpalash/ambxenkxon.git") // Your project URL
+
+                licenses {
+                    license {
+                        name.set("MIT License")
+                        url.set("https://opensource.org/licenses/MIT")
+                    }
+                }
+                scm {
+                    connection.set("scm:git:https://github.com/neosoftpalash/ambxenkxon.git")
+                    developerConnection.set("scm:git:https://github.com/neosoftpalash/ambxenkxon.git")
+                    url.set("https://github.com/neosoftpalash/ambxenkxon")
+                }
+
+                developers {
+                    developer {
+                        id.set("neosoftpalash")
+                        name.set("Palash Gour")
+                        email.set("palash.gour@neosofttech.com")
+                    }
+                }
+            }
+
+        }
+    }
+
+
+    // Repositories for publishing
+    repositories {
+        maven {
+            name = "sonatype"
+            url =
+                uri("https://oss.sonatype.org/service/local/staging/deploy/maven2/") // Sonatype's Maven Central repository URL
+
+            credentials {
+                username = findProperty("ossrhUsername") as String?
+                password = findProperty("ossrhPassword") as String?
+            }
+
+        }
+    }
+    signing {
+        useInMemoryPgpKeys(
+            findProperty("signing.keyId") as String?,
+            findProperty("signing.secretKeyRingFile") as String?,
+            findProperty("signing.password") as String?
+        )
+        sign(publishing.publications["release"])
+
+    }
+}
+ossrhUsername=XVLFGvF6
+ossrhPassword=OmyMvyxc5K/mi05KwaV2ONwWtDVcZh8NQI2BcRtlqupS
+
+signing.keyId=CB58B3AE
+#signing.secretKeyRingFile=C/Users/Admin/secring.gpg
+signing.secretKeyRingFile=Users/sbiepay/Downloads/secring.gpg
+signing.password=Neosoft@123#
+// end todo: 24 Mar 2025 -----------------new method-------------
+// todo: 25 Mar 2025 -----------------new method-------------
+    id("com.vanniktech.maven.publish") version "0.29.0"
+    id("signing")
+
+// Publishing to Maven Central setup
+publishing {
+    publications {
+        // Define the release publication
+        register<MavenPublication>("release") {
+            // from(components["release"]) // Use the release build variant
+
+            groupId = "io.github.neosoftpalash" // Replace with your groupId
+            artifactId = "mylibrary2" // Replace with your artifactId
+            version = "1.0.0" // Replace with your library version
+
+
+            afterEvaluate {
+                from(components["release"])
+            }
+
+            pom {
+                name.set("Palash Library")
+                description.set("A simple Android library")
+                url.set("https://github.com/neosoftpalash/ambxenkxon.git") // Your project URL
+
+                licenses {
+                    license {
+                        name.set("MIT License")
+                        url.set("https://opensource.org/licenses/MIT")
+                    }
+                }
+                scm {
+                    connection.set("scm:git:https://github.com/neosoftpalash/ambxenkxon.git")
+                    developerConnection.set("scm:git:https://github.com/neosoftpalash/ambxenkxon.git")
+                    url.set("https://github.com/neosoftpalash/ambxenkxon")
+                }
+
+                developers {
+                    developer {
+                        id.set("neosoftpalash")
+                        name.set("Palash Gour")
+                        email.set("palash.gour@neosofttech.com")
+                    }
+                }
+            }
+
+        }
+    }
+
+
+    // Repositories for publishing
+    repositories {
+        maven {
+            name = "sonatype"
+            url =
+
+//                uri("https://oss.sonatype.org/service/local/staging/deploy/maven2/") // Sonatype's Maven Central repository URL
+                uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/") // Sonatype's Maven Central repository URL
+
+            credentials {
+                username = findProperty("ossrhUsername") as String?
+                password = findProperty("ossrhPassword") as String?
+            }
+
+        }
+    }
+    signing {
+        useInMemoryPgpKeys(
+            findProperty("signing.keyId") as String?,
+            findProperty("signing.secretKeyRingFile") as String?,
+            findProperty("signing.password") as String?
+        )
+        sign(publishing.publications["release"])
+
+    }
+}
+android.nonTransitiveRClass=true
+ossrhUsername=XVLFGvF6
+ossrhPassword=OmyMvyxc5K/mi05KwaV2ONwWtDVcZh8NQI2BcRtlqupS
+
+signing.keyId=CB58B3AE
+#signing.secretKeyRingFile=C/Users/Admin/secring.gpg
+signing.secretKeyRingFile=Users/sbiepay/Downloads/secring.gpg
+signing.password=Neosoft@123#
+// end todo: 25 Mar 2025 -----------------new method-------------

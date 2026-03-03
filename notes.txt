@@ -1,0 +1,47 @@
+sed -i '' -e 's/\r$//' gradlew
+dos2unix gradlew
+chmod +x gradlew
+gradlew publishToMavenLocal
+gradlew publishReleasePublicationToMavenLocal
+
+rm -rf ~/.m2/repository/com/sbi/epaySdk
+C:\Users\xyz\.m2\repository\com\sbi\epaySdk\1.0.0
+distributionUrl=file:///D:/src/gradle/gradle-8.9-bin.zip
+distributionUrl=https\://services.gradle.org/distributions/gradle-8.9-bin.zip
+
+maven {
+    url = uri("${rootProject.projectDir}/maven-repo")
+}
+
+id("kotlin-parcelize")
+id("maven-publish")
+
+publishing {
+    publications {
+        create<MavenPublication>("release") {
+            groupId = "com.edemo"
+            artifactId = "demoSdk"
+            version = "1.0.0"
+
+            afterEvaluate{
+                from(components["release"])
+            }
+        }
+    }
+    repositories {
+        mavenLocal() // This pushes the AAR to ~/.m2/repository
+    }
+}
+
+publishing {
+    publications {
+        release(MavenPublication){
+            from components.release // release build type
+        }
+    }
+    repositories {
+        maven {
+            url = uri("file://${buildDir}/repo" // Local Maven repository
+        }
+    }
+}

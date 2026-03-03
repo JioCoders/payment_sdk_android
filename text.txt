@@ -1,0 +1,37 @@
+https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-publish-libraries.html#what-s-next
+
+XVLFGvF6
+OmyMvyxc5K/mi05KwaV2ONwWtDVcZh8NQI2BcRtlqupS
+
+<server>
+	<id>${server}</id>
+	<username>XVLFGvF6</username>
+	<password>OmyMvyxc5K/mi05KwaV2ONwWtDVcZh8NQI2BcRtlqupS</password>
+</server>
+'Execution failed for task ':mylibrary2:publishMavenPublicationToSonatypeRepository'.
+> Failed to publish publication 'maven' to repository 'sonatype'
+   > Could not PUT 'https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/TestMavenCentralLibrary/mylibrary2/unspecified/mylibrary2-unspecified.aar'. Received status code 401 from server: Content access is protected by token
+ 
+The namespace io.github.neosoftpalash is registered to publish via the Central Portal and you attempt to publish in OSSRH. Please follow these instructions to publish in Central Portal: https://central.sonatype.org/publish-ea/publish-ea-guide/#publishing-your-components
+ 
+
+
+ Subject: Request to Use Verified GroupId for Publishing to Maven Central
+
+Dear Sonatype Support,
+
+I would like to request permission to publish my library to Maven Central using the GroupId `io.github.neosoftpalash`. This GroupId is already verified, and I am the owner of this project. 
+
+Project Name: MyLibrary
+GroupId: io.github.neosoftpalash
+ArtifactId: mylibrary2
+Version: 1.0.0
+
+Please let me know if I need to provide additional information or complete any other steps for publishing.
+
+Best regards,
+[Your Name]
+
+
+ 
+You have set up a namespace io.github.neosoftpalash on Portal. You can now publish to portal by following the documentation here: https://central.sonatype.org/publish-ea/publish-ea-guide/
